@@ -311,7 +311,7 @@ export default function MeetingRoom8() {
             >
               {isExpanded ? (
                 <Image
-                  src="/svg/map/Arrow.svg"
+                  src="/svg/map/arrow.svg"
                   width={20}
                   height={20}
                   alt="업 아이콘"
@@ -319,7 +319,7 @@ export default function MeetingRoom8() {
               ) : (
                 <Image
                   className="rotate-180"
-                  src="/svg/map/Arrow.svg"
+                  src="/svg/map/arrow.svg"
                   width={20}
                   height={20}
                   alt="업 아이콘"
