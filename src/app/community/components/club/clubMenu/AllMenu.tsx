@@ -168,19 +168,7 @@ export default function AllMenu() {
           {clubs.map((club) => (
             <div key={club.id}>
               <Link href={`/community/club/${club.id}`}>
-                <div
-                  onClick={async (e) => {
-                    e.preventDefault(); // 기본 동작 막기
-                    e.stopPropagation(); // 상위 요소로 이벤트 전파 막기
-                    console.log('Clicked club ID:', club.id);
-                    const hasMatchingMembers = await fetchClubMembers(club.id);
-                    if (hasMatchingMembers) {
-                      window.location.href = `/community/club/${club.id}`;
-                    } else {
-                      window.location.href = `/community/club/request/${club.id}`;
-                    }
-                  }}
-                >
+                <div>
                   {/* 모바일 화면 */}
                   <div
                     className={`bg-white rounded-2xl relative p-4 block md:hidden`}
@@ -227,7 +215,7 @@ export default function AllMenu() {
                         )}
                       </div>
                       <button
-                        className="mr-2"
+                        className="mr-2 z-10"
                         onClick={(e) => {
                           e.stopPropagation(); // 링크 클릭 이벤트 전파 막기
                           handleLikeToggle(club.id, club.liked);
@@ -259,9 +247,9 @@ export default function AllMenu() {
                         <div className="flex justify-between items-center">
                           <h3 className="text-lg font-bold"> {club.title}</h3>
                           <button
-                            className="mr-2"
+                            className="mr-2 z-10"
                             onClick={(e) => {
-                              e.preventDefault(); // 이벤트 전파 막기
+                              e.stopPropagation(); // 이벤트 전파 막기
                               handleLikeToggle(club.id, club.liked);
                             }}
                           >
